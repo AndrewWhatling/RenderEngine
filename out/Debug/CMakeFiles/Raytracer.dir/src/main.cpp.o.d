@@ -259,12 +259,13 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/15.2.1/bits/fstream.tcc \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/exr_exporter.cpp \
- /usr/include/Imath/ImathBox.h /usr/include/Imath/ImathExport.h \
- /usr/include/Imath/ImathConfig.h /usr/include/Imath/ImathNamespace.h \
- /usr/include/Imath/ImathVec.h /usr/include/c++/15.2.1/version \
- /usr/include/Imath/ImathTypeTraits.h /usr/include/Imath/ImathPlatform.h \
- /usr/include/c++/15.2.1/math.h /usr/include/Imath/ImathMath.h \
- /usr/include/Imath/half.h \
+ /usr/include/c++/15.2.1/cstring /usr/include/string.h \
+ /usr/include/strings.h /usr/include/Imath/ImathBox.h \
+ /usr/include/Imath/ImathExport.h /usr/include/Imath/ImathConfig.h \
+ /usr/include/Imath/ImathNamespace.h /usr/include/Imath/ImathVec.h \
+ /usr/include/c++/15.2.1/version /usr/include/Imath/ImathTypeTraits.h \
+ /usr/include/Imath/ImathPlatform.h /usr/include/c++/15.2.1/math.h \
+ /usr/include/Imath/ImathMath.h /usr/include/Imath/half.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86intrin.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86gprintrin.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ia32intrin.h \
@@ -387,10 +388,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/OpenEXR/ImfRgbaFile.h /usr/include/OpenEXR/ImfExport.h \
  /usr/include/OpenEXR/OpenEXRConfig.h /usr/include/OpenEXR/ImfNamespace.h \
  /usr/include/OpenEXR/ImfFrameBuffer.h /usr/include/OpenEXR/ImfForward.h \
- /usr/include/OpenEXR/ImfName.h /usr/include/c++/15.2.1/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/OpenEXR/ImfPixelType.h /usr/include/Imath/ImathBox.h \
- /usr/include/c++/15.2.1/map /usr/include/c++/15.2.1/bits/stl_tree.h \
+ /usr/include/OpenEXR/ImfName.h /usr/include/OpenEXR/ImfPixelType.h \
+ /usr/include/Imath/ImathBox.h /usr/include/c++/15.2.1/map \
+ /usr/include/c++/15.2.1/bits/stl_tree.h \
  /usr/include/c++/15.2.1/bits/stl_map.h \
  /usr/include/c++/15.2.1/bits/stl_multimap.h \
  /usr/include/OpenEXR/ImfHeader.h /usr/include/OpenEXR/IexBaseExc.h \
@@ -416,6 +416,83 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/OpenEXR/ImfFrameBuffer.h \
  /usr/include/OpenEXR/ImfOutputFile.h \
  /usr/include/OpenEXR/ImfGenericOutputFile.h \
+ /usr/include/OpenEXR/ImfStringAttribute.h /usr/include/nlohmann/json.hpp \
+ /usr/include/c++/15.2.1/iterator \
+ /usr/include/c++/15.2.1/bits/stream_iterator.h \
+ /usr/include/c++/15.2.1/utility \
+ /usr/include/c++/15.2.1/bits/stl_relops.h \
+ /usr/include/nlohmann/adl_serializer.hpp \
+ /usr/include/nlohmann/detail/abi_macros.hpp \
+ /usr/include/nlohmann/detail/conversions/from_json.hpp \
+ /usr/include/c++/15.2.1/forward_list \
+ /usr/include/c++/15.2.1/bits/forward_list.h \
+ /usr/include/c++/15.2.1/bits/forward_list.tcc \
+ /usr/include/c++/15.2.1/valarray \
+ /usr/include/c++/15.2.1/bits/valarray_array.h \
+ /usr/include/c++/15.2.1/bits/valarray_array.tcc \
+ /usr/include/c++/15.2.1/bits/valarray_before.h \
+ /usr/include/c++/15.2.1/bits/slice_array.h \
+ /usr/include/c++/15.2.1/bits/valarray_after.h \
+ /usr/include/c++/15.2.1/bits/gslice.h \
+ /usr/include/c++/15.2.1/bits/gslice_array.h \
+ /usr/include/c++/15.2.1/bits/mask_array.h \
+ /usr/include/c++/15.2.1/bits/indirect_array.h \
+ /usr/include/nlohmann/detail/exceptions.hpp \
+ /usr/include/nlohmann/detail/value_t.hpp \
+ /usr/include/nlohmann/detail/macro_scope.hpp \
+ /usr/include/nlohmann/detail/meta/detected.hpp \
+ /usr/include/nlohmann/detail/meta/void_t.hpp \
+ /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
+ /usr/include/c++/15.2.1/cassert /usr/include/assert.h \
+ /usr/include/nlohmann/detail/string_escape.hpp \
+ /usr/include/nlohmann/detail/input/position_t.hpp \
+ /usr/include/nlohmann/detail/meta/cpp_future.hpp \
+ /usr/include/nlohmann/detail/meta/type_traits.hpp \
+ /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
+ /usr/include/nlohmann/detail/meta/call_std/begin.hpp \
+ /usr/include/nlohmann/detail/meta/call_std/end.hpp \
+ /usr/include/nlohmann/json_fwd.hpp \
+ /usr/include/nlohmann/detail/string_concat.hpp \
+ /usr/include/nlohmann/detail/meta/identity_tag.hpp \
+ /usr/include/nlohmann/detail/meta/std_fs.hpp \
+ /usr/include/c++/15.2.1/filesystem /usr/include/c++/15.2.1/bits/fs_fwd.h \
+ /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/locale \
+ /usr/include/c++/15.2.1/bits/locale_facets_nonio.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h \
+ /usr/include/c++/15.2.1/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/15.2.1/bits/locale_conv.h \
+ /usr/include/c++/15.2.1/iomanip \
+ /usr/include/c++/15.2.1/bits/quoted_string.h \
+ /usr/include/c++/15.2.1/codecvt /usr/include/c++/15.2.1/bits/fs_dir.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h \
+ /usr/include/nlohmann/detail/conversions/to_json.hpp \
+ /usr/include/c++/15.2.1/optional \
+ /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+ /usr/include/nlohmann/detail/string_utils.hpp \
+ /usr/include/nlohmann/byte_container_with_subtype.hpp \
+ /usr/include/nlohmann/detail/hash.hpp \
+ /usr/include/nlohmann/detail/input/binary_reader.hpp \
+ /usr/include/nlohmann/detail/input/input_adapters.hpp \
+ /usr/include/nlohmann/detail/input/json_sax.hpp \
+ /usr/include/nlohmann/detail/input/lexer.hpp \
+ /usr/include/nlohmann/detail/meta/is_sax.hpp \
+ /usr/include/nlohmann/detail/input/parser.hpp \
+ /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
+ /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+ /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
+ /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+ /usr/include/nlohmann/detail/json_custom_base_class.hpp \
+ /usr/include/nlohmann/detail/json_pointer.hpp \
+ /usr/include/nlohmann/detail/json_ref.hpp \
+ /usr/include/nlohmann/detail/output/binary_writer.hpp \
+ /usr/include/nlohmann/detail/output/output_adapters.hpp \
+ /usr/include/nlohmann/detail/output/serializer.hpp \
+ /usr/include/nlohmann/detail/conversions/to_chars.hpp \
+ /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/15.2.1/any \
+ /usr/include/nlohmann/detail/macro_unscope.hpp \
+ /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/mesh.h \

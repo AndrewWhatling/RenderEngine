@@ -44,27 +44,33 @@ public:
             pool.queue([&, start_row, end_row]() {
                 for (int j = start_row; j < end_row; j++) {
                     for (int i = 0; i < image_width; i++) {
+                        
+                        // INITIALIZING DATA
 
                         color pixel_color(0);
                         double hit_count = 0;
                         vec3 normal = vec3(0);
                         double pixel_depth = 0;
                         vec3 world_P = vec3(0);
+                        double facing_ratio = 0;
+                        double object_id = -10;
 
-                        ray r = get_ray(i, j);
                         for (int sample = 0; sample < samples_per_pixel; sample++) {
-                            //ray r = get_ray(i, j);
+                            ray r = get_ray(i, j);
                             rayHitInfo ray_hit_info;
                             
                             pixel_color += ray_color(r, max_depth, world, ray_hit_info);
                             find_NaN(pixel_color, i, j);
 
-                            if (ray_hit_info.mat)
+                            if (ray_hit_info.mat) {
                                 hit_count++;
+                            }
                         }
 
                         pixel_color = pixel_sample_scale * pixel_color;
                         hit_count = pixel_sample_scale * hit_count;
+
+                        // WRITING DATA PASSES
 
                         rayHitInfo single_hit;
                         ray dr = get_direct_ray(i, j);
@@ -72,15 +78,18 @@ public:
                             normal = single_hit.N;
                             pixel_depth = single_hit.t;
                             world_P = single_hit.P;
+                            facing_ratio = (dot(normal, cam.facing_dir) * 0.5) + 0.5;
+                            object_id = single_hit.object_id;
                         }
 
-                        //framebuffer[j][i] = { pixel_color, hit_count, normal, pixel_depth };
                         pixel curr_pixel;
                         curr_pixel.rgb = pixel_color;
                         curr_pixel.N = normal;
                         curr_pixel.hit = hit_count;
                         curr_pixel.depth = pixel_depth;
                         curr_pixel.P = world_P;
+                        curr_pixel.facing_ratio = facing_ratio;
+                        curr_pixel.object_id = object_id;
                         framebuffer[j][i] = curr_pixel;
                     }
 
@@ -178,17 +187,6 @@ private:
     vec3 defocus_disk_sample() const {
         auto p = random_in_unit_disk();
         return camera_center + (p.x *defocus_disk_u) + (p.y * defocus_disk_v);
-    }
-
-    color normals_ray_color(ray &r, const sceneObject &world) {
-        rayHitInfo ray_hit_info;
-        if(world.intersect(r, interval(EPSILON, infinity), ray_hit_info)) {
-            return ray_hit_info.front_face ? color(1, 0, 0) : color(0, 0, 1);
-        }
-        
-        vec3 n_dir = normalize(r.direction());
-        double a = 0.5 * (n_dir.y + 1.0);
-        return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
     }
 
     color no_lights_ray_color(ray &r, int depth, const sceneObject &world) {

@@ -19,6 +19,9 @@ public:
     void clear() { objects.clear(); }
 
     void add(shared_ptr<sceneObject> object) {
+        if (object->id == -1)
+            object->id = static_cast<double>(objects.size()+1.0);
+        
         objects.push_back(object);
         bbox = aabb(bbox, object->bounding_box());
     } 
@@ -32,6 +35,7 @@ public:
             if (object->intersect(r, interval(ray_t.min, closest_so_far), temp_info)) {
                 hit_anything = true;
                 closest_so_far = temp_info.t;
+                temp_info.object_id = object->id;
                 ray_hit_info = temp_info;
             }
         }

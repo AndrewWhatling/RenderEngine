@@ -47,8 +47,6 @@ void two_dragons_lambertian() {
     world.add(bg_dragon);
     world.add(dragon_floor);
 
-    world = sceneObjects(make_shared<bvh_node>(world));
-
     camera cam;
     cam.vfov = 30;
     cam.center = point3(-2, 0.8, -2.3);
@@ -100,8 +98,6 @@ void two_dragons_metallic() {
     world.add(fg_dragon);
     world.add(bg_dragon);
     world.add(dragon_floor);
-
-    world = sceneObjects(make_shared<bvh_node>(world));
 
     camera cam;
     cam.vfov = 30;
@@ -160,8 +156,6 @@ void platonic_solids() {
     world.add(left_platonic);
     world.add(groundplane);
     
-    world = sceneObjects(make_shared<bvh_node>(world));
-
     camera cam;
     cam.vfov = 90;
     cam.center = point3(0);
@@ -224,8 +218,6 @@ void cornell_dragon() {
     //world.add(cornell_backface);
     world.add(cornell_light);
 
-    world = sceneObjects(make_shared<bvh_node>(world));
-
     camera cam;
     cam.vfov = 30;
     cam.center = point3(0, 0, -2);
@@ -278,7 +270,7 @@ void nessy() {
 }
 
 int main() {
-    switch(0) {
+    switch(3) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;

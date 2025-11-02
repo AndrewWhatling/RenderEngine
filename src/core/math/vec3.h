@@ -240,3 +240,11 @@ inline void fix_bbox_degenerate(vec3& max_bbox, vec3& min_bbox) {
 inline vec3 exp(const vec3 &v) {
     return vec3(std::exp(v.x), std::exp(v.y), std::exp(v.z));
 }
+
+inline vec3 lerp(const vec3& v0, const vec3& v1, double bias) {
+    return vec3(
+            (v0.x * bias) + (v1.x * (1-bias)),
+            (v0.y * bias) + (v1.y * (1-bias)),
+            (v0.z * bias) + (v1.z * (1-bias))
+            ); 
+}

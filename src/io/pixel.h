@@ -9,4 +9,6 @@ struct pixel {
     vec3 N;
     double depth;
     vec3 P;
+    double facing_ratio;
+    double object_id;
 };

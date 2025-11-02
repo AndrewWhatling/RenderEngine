@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 #include "pixel.h"
+#include <cstring>
+#include <unordered_map>
 
 #include <Imath/ImathBox.h>
 #include <OpenEXR/ImfRgbaFile.h>
@@ -11,7 +13,70 @@
 #include <OpenEXR/ImfChannelList.h>
 #include <OpenEXR/ImfFrameBuffer.h>
 #include <OpenEXR/ImfOutputFile.h>
+#include <OpenEXR/ImfStringAttribute.h>
+#include <nlohmann/json.hpp>
 
+// MurmurHash3_x86_32 
+inline uint32_t MurmurHash3_x86_32(const void* key, size_t len, uint32_t seed = 0) {
+    const uint8_t *data = static_cast<const uint8_t*>(key);
+    const int nblocks = static_cast<int>(len / 4);
+
+    uint32_t h1 = seed;
+    const uint32_t c1 = 0xcc9e2d51;
+    const uint32_t c2 = 0x1b873593;
+    
+    // bodu
+    const uint32_t *blocks = reinterpret_cast<const uint32_t*>(data + nblocks * 4);
+    for (int i = -nblocks; i; i++) {
+        uint32_t k1 = blocks[i];
+        k1 *= c1;
+        k1 = (k1 << 15) | (k1 >> 17);
+        k1 *= c2;
+        h1 ^= k1;
+        h1 = (h1 << 13) | (h1 >> 19);
+        h1 = h1 * 5 + 0xe6546b64;
+    }
+    // tail
+    const uint8_t* tail = data + nblocks * 4;
+    uint32_t k1 = 0;
+    switch (len & 3) {
+        case 3: k1 ^= tail[2] << 16; [[fallthrough]];
+        case 2: k1 ^= tail[1] << 8;  [[fallthrough]];
+        case 1: k1 ^= tail[0];
+                k1 *= c1;
+                k1 = (k1 << 15) | (k1 >> 17);
+                k1 *= c2;
+                h1 ^= k1;
+    }
+    
+    // finalization
+
+    h1 ^= len;
+    h1 ^= h1 >> 16;
+    h1 *= 0x85ebca6b;
+    h1 ^= h1 >> 13;
+    h1 *= 0xc2b2ae35;
+    h1 ^= h1 >> 16;
+
+    return h1;
+}
+
+inline uint32_t hash_name(const std::string &name) {
+    return MurmurHash3_x86_32(name.data(), name.size(), 0);
+}
+
+inline float uint32_to_float32(uint32_t v) {
+    float f;
+    static_assert(sizeof(f) == sizeof(v));
+    std::memcpy(&f, &v, sizeof(float));
+    return f;
+}
+
+inline std::string to_hex8(uint32_t v) {
+    std::ostringstream ss;
+    ss << std::hex << std::setw(8) << std::setfill('0') << std::nouppercase << v;
+    return ss.str();
+}
 
 inline void write_exr16(const std::string& filename, int width, int height, const std::vector<std::vector<pixel>>& framebuffer) {
     
@@ -31,6 +96,14 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     header.channels().insert("P.y", Imf::Channel(Imf::HALF));
     header.channels().insert("P.z", Imf::Channel(Imf::HALF));
 
+    header.channels().insert("facing_ratio.r", Imf::Channel(Imf::HALF));
+    //header.channels().insert("object_id.r", Imf::Channel(Imf::HALF));
+
+    header.channels().insert("CryptoObject00.R", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoObject00.G", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoObject00.B", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoObject00.A", Imf::Channel(Imf::FLOAT));
+
     Imf::FrameBuffer buffer;
     
     std::vector<Imf::Rgba> rgbaPixels(height * width);
@@ -43,6 +116,17 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     std::vector<Imath::half> px(height * width);
     std::vector<Imath::half> py(height * width);
     std::vector<Imath::half> pz(height * width);
+
+    std::vector<Imath::half> facing_ratio(height * width);
+    //std::vector<Imath::half> object_id(height * width);
+
+    std::vector<float> cryptoR(height * width);
+    std::vector<float> cryptoG(height * width);
+    std::vector<float> cryptoB(height * width);
+    std::vector<float> cryptoA(height * width);
+
+    std::unordered_map<std::string, std::string> manifest;
+
 
     for (int j = 0; j < height; j++)
         for (int i = 0; i < width; i++) {
@@ -65,6 +149,19 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
             px[idx] = Imath::half(curr_pixel.P.x);
             py[idx] = Imath::half(curr_pixel.P.y);
             pz[idx] = Imath::half(curr_pixel.P.z);
+
+            facing_ratio[idx] = Imath::half(curr_pixel.facing_ratio);
+            //object_id[idx] = Imath::half(curr_pixel.object_id);
+            
+            uint32_t hash = hash_name(std::to_string(curr_pixel.object_id));
+            float hash_as_float = uint32_to_float32(hash);
+
+            cryptoR[idx] = hash_as_float;
+            cryptoG[idx] = curr_pixel.hit ? 1.0f : 0.0f;
+            cryptoB[idx] = 0.0f;
+            cryptoA[idx] = 0.0f;
+
+            manifest[to_hex8(hash)] = "/object_" + std::to_string(int(curr_pixel.object_id)); 
             }
 
     buffer.insert("R", Imf::Slice(Imf::HALF, (char*)&rgbaPixels[0].r, sizeof(Imf::Rgba), sizeof(Imf::Rgba)*width));
@@ -81,6 +178,24 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     buffer.insert("P.y", Imf::Slice(Imf::HALF, (char*)py.data(), sizeof(Imath::half), sizeof(Imath::half)*width));
     buffer.insert("P.z", Imf::Slice(Imf::HALF, (char*)pz.data(), sizeof(Imath::half), sizeof(Imath::half)*width));
 
+    buffer.insert("facing_ratio.r", Imf::Slice(Imf::HALF, (char*)facing_ratio.data(), sizeof(Imath::half), sizeof(Imath::half)*width));
+    //buffer.insert("object_id.r", Imf::Slice(Imf::HALF, (char*)object_id.data(), sizeof(Imath::half), sizeof(Imath::half)*width));
+
+    buffer.insert("CryptoObject00.R", Imf::Slice(Imf::FLOAT, (char*)cryptoR.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoObject00.G", Imf::Slice(Imf::FLOAT, (char*)cryptoG.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoObject00.B", Imf::Slice(Imf::FLOAT, (char*)cryptoB.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoObject00.A", Imf::Slice(Imf::FLOAT, (char*)cryptoA.data(), sizeof(float), sizeof(float)*width));
+
+    
+    nlohmann::json manifest_json;
+    for (auto &p : manifest)
+        manifest_json[p.second] = p.first;
+
+    header.insert("cryptomatte/CryptoObject/manifest", Imf::StringAttribute(manifest_json.dump()));
+    header.insert("cryptomatte/CryptoObject/hash", Imf::StringAttribute("MurmurHash3_32"));
+    header.insert("cryptomatte/CryptoObject/conversion", Imf::StringAttribute("uint32_to_float32"));
+    header.insert("cryptomatte/CryptoObject/name", Imf::StringAttribute("CryptoObject"));
+    
     Imf::OutputFile file(filename.c_str(), header);           
     file.setFrameBuffer(buffer);
     file.writePixels(height);
