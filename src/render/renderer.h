@@ -53,7 +53,8 @@ public:
                         double pixel_depth = 0;
                         vec3 world_P = vec3(0);
                         double facing_ratio = 0;
-                        double object_id = -10;
+                        double object_id = -1;
+                        double mat_id = -1;
 
                         for (int sample = 0; sample < samples_per_pixel; sample++) {
                             ray r = get_ray(i, j);
@@ -80,6 +81,7 @@ public:
                             world_P = single_hit.P;
                             facing_ratio = (dot(normal, cam.facing_dir) * 0.5) + 0.5;
                             object_id = single_hit.object_id;
+                            mat_id = single_hit.mat_id;
                         }
 
                         pixel curr_pixel;
@@ -90,6 +92,7 @@ public:
                         curr_pixel.P = world_P;
                         curr_pixel.facing_ratio = facing_ratio;
                         curr_pixel.object_id = object_id;
+                        curr_pixel.mat_id = mat_id;
                         framebuffer[j][i] = curr_pixel;
                     }
 

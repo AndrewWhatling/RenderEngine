@@ -36,6 +36,7 @@ public:
                 hit_anything = true;
                 closest_so_far = temp_info.t;
                 temp_info.object_id = object->id;
+                temp_info.update_mat();
                 ray_hit_info = temp_info;
             }
         }

@@ -42,6 +42,7 @@ private:
     double refraction_index;
     color absorption_color;
     double surface_reflectivity;
+    
 
     static double reflectance(double cosine, double refraction_index) {
         // Use Schlicks approximation for reflectance.

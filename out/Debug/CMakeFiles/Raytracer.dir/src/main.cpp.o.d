@@ -235,6 +235,9 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../math/interval.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../ray.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../../material/material.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../../material/../core/color.h \
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/../core/interaction/../../material/../core/../debug/utils.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/sphere.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/camera/camera.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h \
@@ -248,9 +251,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/mutex /usr/include/c++/15.2.1/bits/std_mutex.h \
  /usr/include/c++/15.2.1/bits/unique_lock.h \
  /usr/include/c++/15.2.1/condition_variable \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/material.h \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/../core/color.h \
- /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../material/../core/../debug/utils.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/ppm_exporter.cpp \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/ppm_exporter.h \
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/../io/pixel.h \

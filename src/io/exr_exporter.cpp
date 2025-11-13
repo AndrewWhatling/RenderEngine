@@ -104,6 +104,11 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     header.channels().insert("CryptoObject00.B", Imf::Channel(Imf::FLOAT));
     header.channels().insert("CryptoObject00.A", Imf::Channel(Imf::FLOAT));
 
+    header.channels().insert("CryptoMaterial00.R", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoMaterial00.G", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoMaterial00.B", Imf::Channel(Imf::FLOAT));
+    header.channels().insert("CryptoMaterial00.A", Imf::Channel(Imf::FLOAT));
+
     Imf::FrameBuffer buffer;
     
     std::vector<Imf::Rgba> rgbaPixels(height * width);
@@ -125,8 +130,14 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     std::vector<float> cryptoB(height * width);
     std::vector<float> cryptoA(height * width);
 
-    std::unordered_map<std::string, std::string> manifest;
+    std::vector<float> cryptoMatR(height * width);
+    std::vector<float> cryptoMatG(height * width);
+    std::vector<float> cryptoMatB(height * width);
+    std::vector<float> cryptoMatA(height * width);
 
+    std::unordered_map<std::string, std::string> manifest;
+    std::unordered_map<std::string, std::string> mat_manifest;
+    
 
     for (int j = 0; j < height; j++)
         for (int i = 0; i < width; i++) {
@@ -156,12 +167,21 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
             uint32_t hash = hash_name(std::to_string(curr_pixel.object_id));
             float hash_as_float = uint32_to_float32(hash);
 
+            uint32_t mat_hash = hash_name(std::to_string(curr_pixel.mat_id));
+            float mat_hash_as_float = uint32_to_float32(mat_hash);
+
             cryptoR[idx] = hash_as_float;
             cryptoG[idx] = curr_pixel.hit ? 1.0f : 0.0f;
             cryptoB[idx] = 0.0f;
             cryptoA[idx] = 0.0f;
 
+            cryptoMatR[idx] = mat_hash_as_float;
+            cryptoMatG[idx] = curr_pixel.hit ? 1.0f : 0.0f;
+            cryptoMatB[idx] = 0.0f;
+            cryptoMatA[idx] = 0.0f;
+
             manifest[to_hex8(hash)] = "/object_" + std::to_string(int(curr_pixel.object_id)); 
+            mat_manifest[to_hex8(mat_hash)] = "/material_" + std::to_string(int(curr_pixel.mat_id));
             }
 
     buffer.insert("R", Imf::Slice(Imf::HALF, (char*)&rgbaPixels[0].r, sizeof(Imf::Rgba), sizeof(Imf::Rgba)*width));
@@ -186,6 +206,10 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     buffer.insert("CryptoObject00.B", Imf::Slice(Imf::FLOAT, (char*)cryptoB.data(), sizeof(float), sizeof(float)*width));
     buffer.insert("CryptoObject00.A", Imf::Slice(Imf::FLOAT, (char*)cryptoA.data(), sizeof(float), sizeof(float)*width));
 
+    buffer.insert("CryptoMaterial00.R", Imf::Slice(Imf::FLOAT, (char*)cryptoMatR.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoMaterial00.G", Imf::Slice(Imf::FLOAT, (char*)cryptoMatG.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoMaterial00.B", Imf::Slice(Imf::FLOAT, (char*)cryptoMatB.data(), sizeof(float), sizeof(float)*width));
+    buffer.insert("CryptoMaterial00.A", Imf::Slice(Imf::FLOAT, (char*)cryptoMatA.data(), sizeof(float), sizeof(float)*width));
     
     nlohmann::json manifest_json;
     for (auto &p : manifest)
@@ -196,6 +220,15 @@ inline void write_exr16(const std::string& filename, int width, int height, cons
     header.insert("cryptomatte/CryptoObject/conversion", Imf::StringAttribute("uint32_to_float32"));
     header.insert("cryptomatte/CryptoObject/name", Imf::StringAttribute("CryptoObject"));
     
+    nlohmann::json mat_manifest_json;
+    for (auto &m : mat_manifest)
+        mat_manifest_json[m.second] = m.first;
+
+    header.insert("cryptomatte/CryptoMaterial/manifest", Imf::StringAttribute(mat_manifest_json.dump()));
+    header.insert("cryptomatte/CryptoMaterial/hash", Imf::StringAttribute("MurmurHash3_32"));
+    header.insert("cryptomatte/CryptoMaterial/conversion", Imf::StringAttribute("uint32_to_float32"));
+    header.insert("cryptomatte/CryptoMaterial/name", Imf::StringAttribute("CryptoMaterial"));
+
     Imf::OutputFile file(filename.c_str(), header);           
     file.setFrameBuffer(buffer);
     file.writePixels(height);

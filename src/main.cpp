@@ -128,6 +128,11 @@ void platonic_solids() {
     auto material_glass         = make_shared<dieletric>(1.5);
     auto material_yellow_metal  = make_shared<metal>(color(0.9, 0.7, 0.0), 0.0);
  
+    material_lambert_blue->set_id(1);
+    material_lambert_green->set_id(2);
+    material_glass->set_id(3);
+    material_yellow_metal->set_id(4);
+
     print("Creating Lights");
     auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
     //world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
@@ -135,7 +140,8 @@ void platonic_solids() {
     print("Creating Shared Pointers");
     shared_ptr<mesh> center_platonic = std::make_shared<mesh>(material_lambert_green);
     shared_ptr<mesh> right_platonic  = std::make_shared<mesh>(material_glass);
-    shared_ptr<mesh> left_platonic   = std::make_shared<mesh>(material_yellow_metal);
+    //shared_ptr<mesh> left_platonic   = std::make_shared<mesh>(material_yellow_metal);
+    shared_ptr<mesh> left_platonic   = std::make_shared<mesh>(material_glass);
     shared_ptr<mesh> groundplane     = std::make_shared<mesh>(material_lambert_blue);
 
     print("Loading Meshes");
@@ -185,6 +191,12 @@ void cornell_dragon() {
     auto material_white = make_shared<lambertian>(color(0.8, 0.8, 0.8));
     auto material_glass = make_shared<dieletric>(1.5, color(0.2, 0.8, 0.3));
     auto material_light = make_shared<emitter>(color(0.8), 5);
+
+    material_red->set_id(9);
+    material_blue->set_id(10);
+    material_white->set_id(11);
+    material_glass->set_id(12);
+    material_light->set_id(13);
 
     print("Creating Shared Pointers");
     shared_ptr<mesh> cornell_dragon = std::make_shared<mesh>(material_glass);

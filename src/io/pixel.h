@@ -11,4 +11,5 @@ struct pixel {
     vec3 P;
     double facing_ratio;
     double object_id;
+    double mat_id;
 };

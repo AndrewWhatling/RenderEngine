@@ -152,22 +152,22 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/usr/lib/libOpenEXR-3_4.so.33.3.4.2",
+				"fragment" : "/usr/lib/libOpenEXR-3_4.so.33.3.4.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
-				"fragment" : "/usr/lib/libIlmThread-3_4.so.33.3.4.2",
+				"fragment" : "/usr/lib/libIlmThread-3_4.so.33.3.4.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
-				"fragment" : "/usr/lib/libIex-3_4.so.33.3.4.2",
+				"fragment" : "/usr/lib/libIex-3_4.so.33.3.4.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
-				"fragment" : "/usr/lib/libOpenEXRCore-3_4.so.33.3.4.2",
+				"fragment" : "/usr/lib/libOpenEXRCore-3_4.so.33.3.4.3",
 				"role" : "libraries"
 			},
 			{

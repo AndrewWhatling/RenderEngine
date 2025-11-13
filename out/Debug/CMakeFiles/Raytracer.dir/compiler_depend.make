@@ -13,10 +13,10 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/pixel.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/color.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/material.h \
-  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/utils.h \
@@ -637,11 +637,11 @@ Raytracer: /usr/lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/ld-linux-x86-64.so.2 \
-  /usr/lib/libIex-3_4.so.33.3.4.2 \
-  /usr/lib/libIlmThread-3_4.so.33.3.4.2 \
+  /usr/lib/libIex-3_4.so.33.3.4.3 \
+  /usr/lib/libIlmThread-3_4.so.33.3.4.3 \
   /usr/lib/libImath-3_2.so.30.3.2.2 \
-  /usr/lib/libOpenEXR-3_4.so.33.3.4.2 \
-  /usr/lib/libOpenEXRCore-3_4.so.33.3.4.2 \
+  /usr/lib/libOpenEXR-3_4.so.33.3.4.3 \
+  /usr/lib/libOpenEXRCore-3_4.so.33.3.4.3 \
   /usr/lib/libc.so.6 \
   /usr/lib/libc_nonshared.a \
   /usr/lib/libdeflate.so.0 \
@@ -655,13 +655,11 @@ Raytracer: /usr/lib/Scrt1.o \
 
 /usr/lib/libc_nonshared.a:
 
-/usr/lib/libOpenEXRCore-3_4.so.33.3.4.2:
-
-/usr/lib/libOpenEXR-3_4.so.33.3.4.2:
+/usr/lib/libOpenEXR-3_4.so.33.3.4.3:
 
 /usr/lib/libImath-3_2.so.30.3.2.2:
 
-/usr/lib/libIex-3_4.so.33.3.4.2:
+/usr/lib/libIex-3_4.so.33.3.4.3:
 
 /usr/lib/ld-linux-x86-64.so.2:
 
@@ -918,6 +916,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/types/struct_timeval.h:
 
 /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h:
+
+/usr/lib/libIlmThread-3_4.so.33.3.4.3:
 
 /usr/include/c++/15.2.1/iosfwd:
 
@@ -1229,8 +1229,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/bits/fp-logb.h:
 
-/usr/lib/libIlmThread-3_4.so.33.3.4.2:
-
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h:
 
 /usr/include/bits/time.h:
@@ -1256,6 +1254,18 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h:
+
+/usr/include/linux/errno.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512dqintrin.h:
+
+/usr/include/c++/15.2.1/bits/new_allocator.h:
+
+/usr/include/bits/siginfo-consts.h:
 
 /usr/include/Imath/ImathVec.h:
 
@@ -1298,18 +1308,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/atomic_wide_counter.h:
 
 /usr/include/bits/posix_opt.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h:
-
-/usr/include/linux/errno.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512dqintrin.h:
-
-/usr/include/c++/15.2.1/bits/new_allocator.h:
-
-/usr/include/bits/siginfo-consts.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/random.h:
 
@@ -1600,6 +1598,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/ss_flags.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ammintrin.h:
+
+/usr/lib/libOpenEXRCore-3_4.so.33.3.4.3:
 
 /usr/include/c++/15.2.1/bits/stl_queue.h:
 

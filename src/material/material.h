@@ -1,9 +1,11 @@
 #pragma once
 
-#include "../core/interaction/rayHitInfo.h"
+//#include "../core/interaction/rayHitInfo.h"
 #include "../core/math/vec3.h"
 #include "../core/color.h"
 #include "../core/random.h"
+
+class rayHitInfo;
 
 class material {
 public:
@@ -17,6 +19,11 @@ public:
         return false;
     }
 
+    virtual void set_id (double id) { mat_id = id; }
+    virtual double get_id () { return mat_id; }
+
+private:
+    double mat_id = -1;
 };
 
 class pbr : public material {
@@ -35,5 +42,4 @@ private:
     color  spec_color;
     double spec_rough;
 };
-
 

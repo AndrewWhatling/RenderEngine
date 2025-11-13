@@ -3,8 +3,9 @@
 #include <csignal>
 #include "../aabb.h"
 #include "../math/vec3.h"
+#include "../../material/material.h"
 
-class material;
+//class material;
 
 class rayHitInfo {
 public:
@@ -19,6 +20,10 @@ public:
     void set_face_normal(const ray &r, const vec3 &outward_normal) {
         front_face = dot(r.direction(), outward_normal) < 0.0;
         N = front_face ? outward_normal : -outward_normal;
+    }
+
+    void update_mat() {
+        if (mat) mat_id = mat->get_id();
     }
 };
 
