@@ -3,37 +3,44 @@
 #include "../utils.h"
 
 class interval {
-
     public:
+        // Default values for interval class
         double min, max;
-
+        
+        // Define default as infinity/-infinity line
         interval() : min(+infinity), max(-infinity) {} // Default interval is empty
-
+        
         interval(double min, double max) : min(min), max(max) {}
-
+        
+        // Return size of interval
         double size() const {
             return max - min;
         }
-
+        
+        // Check if a value is on interval
         bool contains(double x) const {
             return min <= x && x <= max;
         }
-
+        
+        // Check if a value is between interval
         bool surrounds(double x) const {
             return min < x && x < max;
         }
-
+        
+        // Clamp value to interval range
         double clamp(double x) const {
             if (x < min) return min;
             if (x > max) return max;
             return x;
         }
         
+        // increase interval by padding number
         interval expand(double delta) const {
             auto padding = delta/2;
             return interval(min - padding, max + padding);
         }
         
+        // Create interval from 2 given intervals
         interval(const interval &a, const interval &b) {
             min = std::min(a.min, b.min);
             max = std::max(a.max, b.max); 

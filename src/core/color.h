@@ -9,32 +9,33 @@
 
 using color = vec3;
 
+// Linear to gamma conversion
 inline double linear_to_gamma(double linear_component) {
     if (linear_component > 0)
         return std::sqrt(linear_component);
 
     return 0;
 }
-
+// Linear to sRGB colorspace conversion per component 
 inline double linear_to_srgb(double linear_component) {
     return (linear_component <= 0.0031308) ? linear_component * 12.92 : 1.055 * std::pow(linear_component, 1.0/2.4) - 0.055;
 }
-
+// Linear to sRGB colorspace conversion 
 inline color linear_to_srgb(vec3 col) {
     return color(linear_to_srgb(col.x), linear_to_srgb(col.y), linear_to_srgb(col.z));
 }
-
+// Check if a color is a NaN
 inline color is_nan(vec3& col) {
     return color(std::isfinite(col.x) ? col.x : 1, std::isfinite(col.y) ? col.y : 0, std::isfinite(col.z) ? col.z : 1);
 }
-
+// Return sRGB color
 inline color return_srgb(vec3 col) {
     col = linear_to_srgb(col);
     col = is_nan(col);
     nan_vec3(col, "Color.h Pixel Color");
     return col;
 }
-
+// Write color to ppm file
 inline void write_color(std::ostream& out, const color &pixel_color) {
 
     //auto r = pixel_color.x;

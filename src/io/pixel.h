@@ -3,6 +3,7 @@
 #include "../core/color.h"
 #include "../core/math/vec3.h"
 
+// default class for pixel
 struct pixel {
     color rgb;
     double hit;

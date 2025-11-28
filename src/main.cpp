@@ -100,11 +100,11 @@ void two_dragons_metallic() {
     world.add(dragon_floor);
 
     camera cam;
-    cam.vfov = 30;
+    cam.focal_length = 35;
     cam.center = point3(-2, 0.8, -2.3);
     cam.lookat = point3(-0.85, 0.296, -0.225);
-    cam.defocus_angle = 0;
     cam.focus_distance = length(cam.center - cam.lookat);
+    cam.f_stop = 2.8;
     
     renderer rend;
 
@@ -114,6 +114,8 @@ void two_dragons_metallic() {
     rend.max_depth = 50;
     rend.background = color(0);
     
+    cam.compute_derived(rend.aspect_ratio);
+
     timeFunction("render", [&] {
     rend.render(world, cam);
     });
@@ -163,12 +165,10 @@ void platonic_solids() {
     world.add(groundplane);
     
     camera cam;
-    cam.vfov = 90;
     cam.center = point3(0);
+    cam.focal_length = 7.1;
+    cam.f_stop = 1000;
 
-    //cam.defocus_angle = 10;
-    //cam.focus_distance = length(point3(0) - point3(0, 0, -1));
-    
     renderer rend;
 
     rend.aspect_ratio = 16.0/9.0;
@@ -177,6 +177,8 @@ void platonic_solids() {
     rend.max_depth = 50;
     //rend.background = color(0);
     
+    cam.compute_derived(rend.aspect_ratio);
+
     timeFunction("render", [&] {
     rend.render(world, cam);
     });
@@ -282,7 +284,7 @@ void nessy() {
 }
 
 int main() {
-    switch(3) {
+    switch(0) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;

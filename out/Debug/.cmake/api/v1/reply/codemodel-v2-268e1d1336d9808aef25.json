@@ -1,0 +1,204 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Imath::Config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Imath__Config-Debug-e265d41dd7aa5cf307f8.json",
+					"name" : "Imath::Config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Imath::Imath::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Imath__Imath-Debug-0a1cde442d6d53d86774.json",
+					"name" : "Imath::Imath",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Imath::ImathConfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Imath__ImathConfig-Debug-499c86b3bacc4a5f72aa.json",
+					"name" : "Imath::ImathConfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Imath::PyImathConfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Imath__PyImathConfig-Debug-c465db74718a75c43255.json",
+					"name" : "Imath::PyImathConfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::Iex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__Iex-Debug-3d60078ba365e32a41be.json",
+					"name" : "OpenEXR::Iex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::IexConfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__IexConfig-Debug-a49978e8089b0aadc039.json",
+					"name" : "OpenEXR::IexConfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::IlmThread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__IlmThread-Debug-36fca5c05f85abdd64aa.json",
+					"name" : "OpenEXR::IlmThread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::IlmThreadConfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__IlmThreadConfig-Debug-79838ac1a981ab69b073.json",
+					"name" : "OpenEXR::IlmThreadConfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::OpenEXR::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__OpenEXR-Debug-58d30d0ef8a443efee49.json",
+					"name" : "OpenEXR::OpenEXR",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::OpenEXRConfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__OpenEXRConfig-Debug-e2e33b249ac1750ae1f7.json",
+					"name" : "OpenEXR::OpenEXRConfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::OpenEXRCore::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__OpenEXRCore-Debug-a0e6bf8a0e2ce088fb5c.json",
+					"name" : "OpenEXR::OpenEXRCore",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::OpenEXRUtil::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__OpenEXRUtil-Debug-5262c0b0c05340a02b00.json",
+					"name" : "OpenEXR::OpenEXRUtil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenEXR::openjph::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenEXR__openjph-Debug-760845890136c666abb4.json",
+					"name" : "OpenEXR::openjph",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Threads::Threads::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Threads__Threads-Debug-35c8bfb8c204a3c41064.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "libdeflate::libdeflate_shared::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-libdeflate__libdeflate_shared-Debug-91ae9b3320233dc0185a.json",
+					"name" : "libdeflate::libdeflate_shared",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-9ad1a58d4644cf6543fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Raytracer",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Raytracer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Raytracer-Debug-2462bd5d70437a6ae091.json",
+					"name" : "Raytracer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/out/Debug",
+		"source" : "/home/Andrew/Documents/University/Showreel/RenderEngine/Engine"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

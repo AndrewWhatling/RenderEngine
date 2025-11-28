@@ -4,10 +4,12 @@
 #include "math/interval.h"
 #include "ray.h"
 
+// Class for Axis Aligned Bounding Box
 class aabb {
 public:
     interval x, y, z;
 
+    // Initial constructors for AABB
     aabb() {} // Default AABB is empty since intervals are empty by default
 
     aabb(const interval &x, const interval &y, const interval &z) : x(x), y(y), z(z) {}
@@ -41,12 +43,14 @@ public:
         );
     }
 
+    // return axis based on given int
     const interval& axis_interval(int n) const {
         if (n == 1) return y;
         if (n == 2) return z;
         return x;
     }
     
+    // return the longest axis of the bounding box
     int longest_axis() const {
         double dx = x.max - x.min;
         double dy = y.max - y.min;
@@ -59,11 +63,13 @@ public:
         else
             return 2;
     }
-
+    
+    // return centroid position of bounding box
     point3 centroid() const {
         return point3(0.5 * (x.min + x.max), 0.5 * (y.min + y.max), 0.5 * (z.min + z.max));
     }
 
+    // calculate if bounding box is being intersected with given ray
     bool intersect(const ray &r, interval ray_t) const {
         const point3 &ray_orig = r.origin();
         const vec3   &ray_dir  = r.direction();

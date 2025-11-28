@@ -18,8 +18,8 @@
 
 class renderer {
 public:
-    double aspect_ratio      = 1.0; // Image width to height ratio.
-    int    image_width       = 100; // Rendered image width in pixels.
+    double aspect_ratio      = 16.0/9.0; // Image width to height ratio.
+    int    image_width       = 1920; // Rendered image width in pixels.
     int    samples_per_pixel = 10;  // Total number of random samples used per pixel.
     int    max_depth         = 10;  // Max number of ray bounces in scene.
     color  background        = color(0.5, 0.7, 1);
@@ -123,7 +123,7 @@ private:
     vec3   u, v, w;            // Camera frame basis vectors
     vec3   defocus_disk_u;     // Defocus disk horizontal radius
     vec3   defocus_disk_v;     // Defocus disk vertical radius
-    double defocus_angle;
+    double lens_radius;
 
 
     void initialize(camera cam) {
@@ -133,7 +133,6 @@ private:
         pixel_sample_scale = 1.0 / samples_per_pixel;
 
         camera_center = cam.center;
-        defocus_angle = cam.defocus_angle;
         auto theta = degrees_to_radians(cam.vfov);
         auto h = std::tan(theta/2);
     
@@ -153,9 +152,10 @@ private:
         auto viewport_top_left_pixel = camera_center - (cam.focus_distance * w) - viewport_u/2 - viewport_v/2;
         pixel00_loc = viewport_top_left_pixel + 0.5 * (pixel_delta_u + pixel_delta_v);
 
-        auto defocus_radius = cam.focus_distance * std::tan(degrees_to_radians(defocus_angle / 2));
-        defocus_disk_u = u * defocus_radius;
-        defocus_disk_v = v * defocus_radius;
+        //auto defocus_radius = cam.focus_distance * std::tan(degrees_to_radians(cam.defocus_angle / 2));
+        lens_radius = cam.lens_radius;
+        defocus_disk_u = u * lens_radius;
+        defocus_disk_v = v * lens_radius;
 
     }
 
@@ -164,7 +164,7 @@ private:
 
         auto offset = sample_squared();
         auto pixel_sample = pixel00_loc + ((i + offset.x) * pixel_delta_u) + ((j + offset.y) * pixel_delta_v);
-        auto ray_origin = (defocus_angle <= 0) ? camera_center : defocus_disk_sample();
+        auto ray_origin = (lens_radius <= 0) ? camera_center : defocus_disk_sample();
         auto ray_dir = normalize(pixel_sample - ray_origin);
 
         if (length2(ray_dir) < EPSILON) ray_dir = vec3(0, 0, -1);
@@ -174,7 +174,7 @@ private:
     
     ray get_direct_ray(int i, int j) const {
         auto pixel_sample = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
-        auto ray_origin = (defocus_angle <= 0) ? camera_center : defocus_disk_sample();
+        auto ray_origin = (lens_radius <= 0) ? camera_center : defocus_disk_sample();
         auto ray_dir = normalize(pixel_sample - ray_origin);
 
         if (length2(ray_dir) < EPSILON) ray_dir = vec3(0, 0, -1);

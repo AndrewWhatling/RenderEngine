@@ -8,7 +8,7 @@
 #include <condition_variable>
 #include <functional>
 
-
+// definition of threadPool class
 class threadPool {
 public:
     threadPool(size_t num_threads);
@@ -32,14 +32,14 @@ private:
     void worker_thread();
 };
 
-
+// destructor for threadPool, finalising all jobs and cleanly exiting the given jobs
 inline threadPool::~threadPool() {
     stop = true;
     condition.notify_all();
     for (auto &thread : workers) 
         thread.join();
 }
-
+// queue a worker up for a new job
 inline void threadPool::queue(std::function<void()> job) {
     {
         std::unique_lock<std::mutex> lock(queue_mutex);
@@ -47,7 +47,7 @@ inline void threadPool::queue(std::function<void()> job) {
     }
     condition.notify_one();
 }
-
+// wait for a new job to open up
 inline void threadPool::wait() {
     while (true) {
         if (tasks.empty() && working_threads == 0)
@@ -55,7 +55,7 @@ inline void threadPool::wait() {
         std::this_thread::yield();
     }
 }
-
+// core logic that each thread runs inside pool
 inline void threadPool::worker_thread() {
     while (!stop) {
         std::function<void()> job;
@@ -72,7 +72,7 @@ inline void threadPool::worker_thread() {
         working_threads--;
     }
 }
-
+// Initialise workers
 inline threadPool::threadPool(size_t num_threads) {
     for (size_t i = 0; i < num_threads; ++i) {
         workers.emplace_back([this]() { this->worker_thread(); });

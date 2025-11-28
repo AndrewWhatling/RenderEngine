@@ -4,12 +4,12 @@
 #include <string>
 #include <ostream>
 
-
+// basic print statement for C++ debugging
 inline void print(std::string message) {
     std::cout << message << std::endl;
 
 }
-
+// Checks if a NaN is detected in a vec3 
 inline void nan_vec3(vec3 v0, std::string object) {
     if (!std::isfinite(v0.x) || !std::isfinite(v0.y) || !std::isfinite(v0.z))
         std::cout << "NaN detected at: " << object << std::endl;

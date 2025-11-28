@@ -6,6 +6,7 @@
 #include "pixel.h"
 #include <cstring>
 #include <unordered_map>
+#include "exr_exporter.h"
 
 #include <Imath/ImathBox.h>
 #include <OpenEXR/ImfRgbaFile.h>
