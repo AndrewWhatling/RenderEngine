@@ -12,6 +12,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o: /home/Andrew/Documents/University/Showr
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/pixel.h \
+  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h \
   /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h \
@@ -773,10 +774,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectintrin.h:
 
-/usr/include/c++/15.2.1/bits/random.tcc:
-
-/usr/include/nlohmann/detail/string_utils.hpp:
-
 /usr/include/c++/15.2.1/queue:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtileintrin.h:
@@ -818,6 +815,8 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/bits/ios_base.h:
 
 /usr/include/c++/15.2.1/bits/hash_bytes.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/omp.h:
 
@@ -1027,6 +1026,12 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/filesystem:
 
+/usr/include/bits/sigthread.h:
+
+/usr/include/c++/15.2.1/bits/gslice_array.h:
+
+/usr/include/Imath/ImathNamespace.h:
+
 /usr/include/OpenEXR/ImfExport.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniintrin.h:
@@ -1077,12 +1082,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/backward/auto_ptr.h:
 
-/usr/include/c++/15.2.1/bits/gslice_array.h:
-
-/usr/include/Imath/ImathNamespace.h:
-
-/usr/include/bits/sigthread.h:
-
 /usr/include/c++/15.2.1/bits/unique_lock.h:
 
 /usr/include/bits/stdint-intn.h:
@@ -1090,32 +1089,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/bits/wctype-wchar.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/math/vec2.h:
-
-/usr/include/OpenEXR/IexConfig.h:
-
-/usr/include/bits/local_lim.h:
-
-/usr/include/OpenEXR/ImfChannelList.h:
-
-/usr/include/OpenEXR/ImfThreading.h:
-
-/usr/include/c++/15.2.1/bits/quoted_string.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h:
-
-/usr/include/bits/time.h:
-
-/usr/include/c++/15.2.1/bits/stl_vector.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h:
-
-/usr/include/OpenEXR/ImfTileDescription.h:
-
-/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
-
-/usr/include/nlohmann/detail/string_escape.hpp:
 
 /usr/include/OpenEXR/ImfIO.h:
 
@@ -1179,13 +1152,17 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/ray.h:
 
-/usr/lib/libmvec.so.1:
-
-/usr/include/bits/fp-logb.h:
-
-/usr/include/linux/stddef.h:
-
 /usr/include/bits/types/siginfo_t.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/triPrim.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h:
+
+/usr/include/OpenEXR/ImfTileDescription.h:
+
+/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
+
+/usr/include/nlohmann/detail/string_escape.hpp:
 
 /usr/include/OpenEXR/ImfLineOrder.h:
 
@@ -1193,7 +1170,15 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxbf16intrin.h:
 
+/usr/include/c++/15.2.1/bits/random.tcc:
+
+/usr/include/nlohmann/detail/string_utils.hpp:
+
 /usr/include/bits/waitflags.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlintrin.h:
+
+/usr/include/c++/15.2.1/forward_list:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/lambertian.cpp:
 
@@ -1243,6 +1228,38 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 
 /usr/include/libintl.h:
 
+/usr/include/OpenEXR/IexConfig.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/OpenEXR/ImfChannelList.h:
+
+/usr/include/OpenEXR/ImfThreading.h:
+
+/usr/include/c++/15.2.1/bits/quoted_string.h:
+
+/usr/lib/libmvec.so.1:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/bits/fp-logb.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/c++/15.2.1/bits/stl_vector.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
+
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/c++/15.2.1/ios:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h:
+
+/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
+
 /usr/include/Imath/ImathVec.h:
 
 /usr/include/OpenEXR/ImfGenericOutputFile.h:
@@ -1258,16 +1275,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/nlohmann/detail/input/position_t.hpp:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/scene/bvh/bvh.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/main.cpp:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/c++/15.2.1/ios:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h:
-
-/home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/core/aabb.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h:
 
@@ -1656,10 +1663,6 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/compare:
 
 /usr/include/c++/15.2.1/cwctype:
-
-/usr/include/c++/15.2.1/forward_list:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlintrin.h:
 
 /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/material/metallic.cpp:
 

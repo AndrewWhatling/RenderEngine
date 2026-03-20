@@ -283,13 +283,139 @@ void nessy() {
     });
 }
 
+void two_dragons_emissive() {
+    
+    sceneObjects world;
+    
+    auto material_emissive = make_shared<emitter>(color(0.74, 0.23, 0.74), 2);
+    auto material_chrome    = make_shared<metal>(color(0.98), 0);
+    auto material_ground    = make_shared<lambertian>(color(0.02, 0.5, 0.8));
+
+    print("Creating Lights");
+    auto material_emit = make_shared<emitter>(color(0.98, 0.98, 0.98), 50);
+    world.add(make_shared<sphere>(point3(0, 2.5, 0), 0.5, material_emit));
+
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> fg_dragon    = std::make_shared<mesh>(material_emissive);
+    shared_ptr<mesh> bg_dragon    = std::make_shared<mesh>(material_chrome);
+    shared_ptr<mesh> dragon_floor = std::make_shared<mesh>(material_ground);
+    
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_fg.obj", fg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/dragon_high_bg.obj", bg_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/two_dragons/floor_two_dragons.obj", dragon_floor);
+    
+    print("Finalizing Meshes");
+    fg_dragon->finalize();
+    bg_dragon->finalize();
+    dragon_floor->finalize();
+
+    print("Adding Meshes to World");
+    world.add(fg_dragon);
+    world.add(bg_dragon);
+    world.add(dragon_floor);
+
+    camera cam;
+    cam.focal_length = 35;
+    cam.center = point3(-2, 0.8, -2.3);
+    cam.lookat = point3(-0.85, 0.296, -0.225);
+    cam.focus_distance = length(cam.center - cam.lookat);
+    cam.f_stop = 2.8;
+    
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 100;
+    rend.max_depth = 50;
+    rend.background = color(0);
+    
+    cam.compute_derived(rend.aspect_ratio);
+
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
+
+void cornell_dragon_reflect() {
+
+    sceneObjects world;
+
+    auto material_red   = make_shared<metal>(color(0.9, 0.2, 0.2), 0);
+    auto material_blue  = make_shared<metal>(color(0.2, 0.2, 0.9), 0);
+    auto material_white = make_shared<metal>(color(0.8, 0.8, 0.8), 0);
+    auto material_dragon = make_shared<dieletric>(1.5, color(0.2, 0.8, 0.3));
+    auto material_light = make_shared<emitter>(color(0.8), 5);
+
+    material_red->set_id(9);
+    material_blue->set_id(10);
+    material_white->set_id(11);
+    material_dragon->set_id(12);
+    material_light->set_id(13);
+
+    print("Creating Shared Pointers");
+    shared_ptr<mesh> cornell_dragon = std::make_shared<mesh>(material_dragon);
+    shared_ptr<mesh> cornell_red = std::make_shared<mesh>(material_red);
+    shared_ptr<mesh> cornell_blue = std::make_shared<mesh>(material_blue);
+    shared_ptr<mesh> cornell_white = std::make_shared<mesh>(material_white);
+    shared_ptr<mesh> cornell_light = std::make_shared<mesh>(material_light);
+    shared_ptr<mesh> cornell_backface = std::make_shared<mesh>(material_white);
+    
+    print("Loading Meshes");
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/dragon_cornell.obj", cornell_dragon);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_red.obj", cornell_red);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_blue.obj", cornell_blue);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_white.obj", cornell_white);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_light.obj", cornell_light);
+    objLoader::load("/home/Andrew/Documents/University/Showreel/RenderEngine/Scenes/cornell_dragon/cornell_backface.obj", cornell_backface);
+
+    print("Finalizing Meshes");
+    cornell_dragon->finalize();
+    cornell_red->finalize();
+    cornell_blue->finalize();
+    cornell_white->finalize();
+    cornell_light->finalize();
+    cornell_backface->finalize();
+
+    print("Adding Meshes to World");
+    world.add(cornell_dragon);
+    world.add(cornell_red);
+    world.add(cornell_blue);
+    world.add(cornell_white);
+    //world.add(cornell_backface);
+    world.add(cornell_light);
+
+    camera cam;
+    cam.focal_length = 24;
+    cam.center = point3(0, 0, -2);
+    cam.f_stop = 1000;
+
+    renderer rend;
+
+    rend.aspect_ratio = 16.0/9.0;
+    rend.image_width = 1920;
+    rend.samples_per_pixel = 400;
+    rend.max_depth = 50;
+    rend.background = color(0);
+    
+    cam.compute_derived(rend.aspect_ratio);
+
+    timeFunction("render", [&] {
+    rend.render(world, cam);
+    });
+}
+
+
+
 int main() {
-    switch(0) {
+    switch(6) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;
         case 3: cornell_dragon(); break;
         case 4: nessy(); break;
+        case 5: two_dragons_emissive(); break;
+        case 6: cornell_dragon_reflect(); break;
     }
 }
 

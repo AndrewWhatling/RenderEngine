@@ -13,6 +13,7 @@ CMakeFiles/Raytracer.dir/src/main.cpp.o
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/exr_exporter.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/pixel.h
+ /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.cpp
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/io/ppm_exporter.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/render/renderer.h
  /home/Andrew/Documents/University/Showreel/RenderEngine/Engine/src/debug/utils.h
