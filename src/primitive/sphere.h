@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../core/interaction/rayHitInfo.h"
+#include "core/rayHitInfo.h"
 #include <unistd.h>
-#include "../core/aabb.h"
-#include "../core/math/vec3.h"
+#include "core/aabb.h"
+#include "math/vec3.h"
 
 class sphere : public sceneObject {
 public:

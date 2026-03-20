@@ -3,7 +3,7 @@
 #include "../core/color.h"
 #include <vector>
 #include <string>
-#include "pixel.h"
+#include "../film/pixel.h"
 #include <cstring>
 #include <unordered_map>
 #include "exr_exporter.h"

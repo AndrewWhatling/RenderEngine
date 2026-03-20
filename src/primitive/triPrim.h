@@ -1,11 +1,11 @@
 #pragma once
 
 
-#include "../core/math/vec3.h"
-#include "../core/aabb.h"
-#include "../core/interaction/rayHitInfo.h"
-#include "../material/material.h"
-#include "sceneObjects.h"
+#include "math/vec3.h"
+#include "core/aabb.h"
+#include "core/rayHitInfo.h"
+#include "bsdf/material.h"
+#include "scene/sceneObjects.h"
 #include <memory>
 
 

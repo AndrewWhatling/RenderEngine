@@ -1,14 +1,14 @@
 #pragma once
 
-#include "../core/math/vec3.h"
+#include "math/vec3.h"
 #include <vector>
-#include "sceneObjects.h"
-#include "../material/material.h"
-#include "../core/utils.h"
-#include "../core/math/ivec3.h"
-#include "../core/math/vec2.h"
+#include "scene/sceneObjects.h"
+#include "bsdf/material.h"
+#include "core/utils.h"
+#include "math/ivec3.h"
+#include "math/vec2.h"
 #include "tri.h"
-#include "bvh/bvh.h"
+#include "acceleration/bvh.h"
 #include "triPrim.h"
 
 

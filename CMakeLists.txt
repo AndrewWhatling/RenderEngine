@@ -5,6 +5,9 @@ project(Raytracer LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
 find_package(OpenEXR REQUIRED)
 
 add_executable(Raytracer
@@ -13,4 +16,7 @@ add_executable(Raytracer
 
 target_link_libraries(Raytracer PRIVATE OpenEXR::OpenEXR)
 
+target_include_directories(Raytracer PRIVATE
+    ${CMAKE_SOURCE_DIR}/src
+)
 

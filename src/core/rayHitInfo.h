@@ -1,9 +1,9 @@
 #pragma once
 
 #include <csignal>
-#include "../aabb.h"
-#include "../math/vec3.h"
-#include "../../material/material.h"
+#include "aabb.h"
+#include "math/vec3.h"
+#include "bsdf/material.h"
 
 //class material;
 

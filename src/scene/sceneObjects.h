@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../core/interaction/rayHitInfo.h"
+#include "core/rayHitInfo.h"
 #include <algorithm>
 #include <memory>
 #include <vector>
-#include "../core/aabb.h"
+#include "core/aabb.h"
 
 using std::make_shared;
 using std::shared_ptr;

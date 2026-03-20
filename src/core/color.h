@@ -2,7 +2,7 @@
 
 #include "math/vec3.h"
 #include "math/interval.h"
-#include "../debug/utils.h"
+#include "utils.h"
 
 #include <iostream>
 #include <cmath>
@@ -27,6 +27,11 @@ inline color linear_to_srgb(vec3 col) {
 // Check if a color is a NaN
 inline color is_nan(vec3& col) {
     return color(std::isfinite(col.x) ? col.x : 1, std::isfinite(col.y) ? col.y : 0, std::isfinite(col.z) ? col.z : 1);
+}
+// Checks if a NaN is detected in a vec3 
+inline void nan_vec3(const vec3 v0, std::string object) {
+    if (!std::isfinite(v0.x) || !std::isfinite(v0.y) || !std::isfinite(v0.z))
+        std::cout << "NaN detected at: " << object << std::endl;
 }
 // Return sRGB color
 inline color return_srgb(vec3 col) {

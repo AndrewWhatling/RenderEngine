@@ -3,10 +3,12 @@
 #include "math/vec3.h"
 #include <iostream>
 #include <string>
+#include <ostream>
 #include <chrono>
 #include <functional>
 #include <memory>
 #include <limits>
+#include <cmath>
 
 // Function to calculate time of another function
 template<typename Func>
@@ -40,3 +42,9 @@ inline double degrees_to_radians(double degrees) {
 inline double radians_to_degrees(double radians) {
     return radians * (180.0 / pi);
 }
+
+// basic print statement for C++ debugging
+inline void print(const std::string& message) {
+    std::cout << message << std::endl;
+}
+

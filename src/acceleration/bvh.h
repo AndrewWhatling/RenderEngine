@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../../core/aabb.h"
-#include "../sceneObjects.h"
-#include "../../core/interaction/rayHitInfo.h"
-#include "../../core/random.h"
+#include "core/aabb.h"
+#include "scene/sceneObjects.h"
+#include "core/rayHitInfo.h"
+#include "core/random.h"
 #include <memory>
 #include <algorithm>
 #include <vector>

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../utils.h"
-#include "../random.h"
+#include "core/utils.h"
+#include "core/random.h"
 #include <cmath>
 #include <algorithm>
 

@@ -1,17 +1,17 @@
 #include "scene/sceneObjects.h"
-#include "scene/sphere.h"
+#include "primitive/sphere.h"
 #include "camera/camera.h"
-#include "render/renderer.h"
-#include "scene/bvh/bvh.h"
-#include "scene/mesh.h"
-#include "loader/objLoader.h"
+#include "renderer/renderer.h"
+#include "acceleration/bvh.h"
+#include "primitive/mesh.h"
+#include "io/objLoader.h"
 #include "core/utils.h"
-#include "material/lambertian.cpp"
-#include "material/metallic.cpp"
-#include "material/dielectric.cpp"
-#include "material/emitter.cpp"
+#include "bsdf/lambertian.cpp"
+#include "bsdf/metallic.cpp"
+#include "bsdf/dielectric.cpp"
+#include "bsdf/emitter.cpp"
 
-#include "debug/utils.h"
+#include "core/utils.h"
 
 using namespace std;
 
@@ -408,7 +408,7 @@ void cornell_dragon_reflect() {
 
 
 int main() {
-    switch(6) {
+    switch(0) {
         case 0: platonic_solids();  break;
         case 1: two_dragons_metallic(); break;
         case 2: two_dragons_lambertian(); break;

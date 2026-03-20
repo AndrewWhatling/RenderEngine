@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../core/math/vec3.h"
-#include "../scene/mesh.h"
+#include "math/vec3.h"
+#include "primitive/mesh.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>

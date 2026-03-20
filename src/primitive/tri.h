@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../core/math/ivec3.h"
-#include "../core/math/vec3.h"
-#include "../core/math/vec2.h"
+#include "math/ivec3.h"
+#include "math/vec3.h"
+#include "math/vec2.h"
 
 struct tri {
     ivec3 vert_indices = ivec3(-1);

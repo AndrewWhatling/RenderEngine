@@ -1,8 +1,8 @@
 #pragma once
 
 #include "material.h"
-#include "../core/color.h"
-#include "../core/math/vec3.h"
+#include "core/color.h"
+#include "math/vec3.h"
 #include <algorithm>
 
 class dieletric : public material {

@@ -1,9 +1,9 @@
 #pragma once
 
 //#include "../core/interaction/rayHitInfo.h"
-#include "../core/math/vec3.h"
-#include "../core/color.h"
-#include "../core/random.h"
+#include "math/vec3.h"
+#include "core/color.h"
+#include "core/random.h"
 
 class rayHitInfo;
 

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../core/color.h"
+#include "core/color.h"
 #include "ppm_exporter.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-#include "pixel.h"
+#include "film/pixel.h"
 
 inline void write_ppm(const std::string& filename, int width, int height, const std::vector<std::vector<pixel>>& framebuffer ) {
     std::ofstream out(filename);

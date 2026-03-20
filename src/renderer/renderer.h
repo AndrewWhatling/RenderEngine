@@ -1,15 +1,15 @@
 #pragma once
 
-#include "../core/interaction/rayHitInfo.h"
-#include "../core/math/vec3.h"
-#include "../camera/camera.h"
-#include "../core/threadpool.h"
-#include "../core/utils.h"
-#include "../material/material.h"
-#include "../core/color.h"
-#include "../io/ppm_exporter.cpp"
-#include "../io/exr_exporter.cpp"
-#include "../io/pixel.h"
+#include "core/rayHitInfo.h"
+#include "math/vec3.h"
+#include "camera/camera.h"
+#include "core/threadpool.h"
+#include "core/utils.h"
+#include "bsdf/material.h"
+#include "core/color.h"
+#include "io/ppm_exporter.cpp"
+#include "io/exr_exporter.cpp"
+#include "film/pixel.h"
 
 #include <omp.h>
 #include <thread>
