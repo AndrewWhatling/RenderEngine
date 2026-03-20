@@ -2,3 +2,4 @@
 .output/
 .build/
 .src/fixes.txt
+.cache/
