@@ -2,7 +2,7 @@
 
 #include "math/vec3.h"
 #include "math/interval.h"
-#include "utils.h"
+#include "core/utils.h"
 
 #include <iostream>
 #include <cmath>
