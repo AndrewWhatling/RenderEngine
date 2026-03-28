@@ -1,5 +1,7 @@
 #pragma once
 
+#include <limits>
+#include <algorithm>
 #include "math/vec3.h"
 #include "math/interval.h"
 #include "ray.h"

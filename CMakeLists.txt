@@ -12,6 +12,10 @@ find_package(OpenEXR REQUIRED)
 
 add_executable(Raytracer
     src/main.cpp
+    src/math/vec3.cpp
+    src/math/ivec3.cpp
+    src/math/vec2.cpp
+    src/math/interval.cpp
 )
 
 target_link_libraries(Raytracer PRIVATE OpenEXR::OpenEXR)

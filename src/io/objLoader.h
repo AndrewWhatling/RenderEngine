@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 
 class objLoader {
@@ -53,9 +54,9 @@ private:
     
     static void read_faces(std::istringstream &iss, shared_ptr<mesh> &out_mesh ) {
         
-        vector<int> v_idxs;
-        vector<int> vt_idxs;
-        vector<int> vn_idxs;
+        std::vector<int> v_idxs;
+        std::vector<int> vt_idxs;
+        std::vector<int> vn_idxs;
 
         std::string vert_str;
         while (iss >> vert_str) {
