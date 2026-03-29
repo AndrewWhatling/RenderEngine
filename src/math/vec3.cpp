@@ -163,7 +163,7 @@ vec3 operator / (double f, const vec3 v) {
 }
 
 // Cross product
-vec3 cross(vec3 &v1, vec3 &v2) {
+vec3 cross(const vec3 &v1, const vec3 &v2) {
     return vec3(
             v1.y * v2.z - v1.z * v2.y,
             -(v1.x * v2.z - v1.z * v2.x),
@@ -244,11 +244,28 @@ vec3 exp(const vec3 &v) {
 }
 
 // Linear interpolation between vectors
-vec3 lerp(const vec3& v0, const vec3& v1, double bias) {
+vec3 lerp(const vec3& v1, const vec3& v2, double bias) {
     return vec3(
-            (v0.x * bias) + (v1.x * (1-bias)),
-            (v0.y * bias) + (v1.y * (1-bias)),
-            (v0.z * bias) + (v1.z * (1-bias))
+            (v1.x * bias) + (v2.x * (1-bias)),
+            (v1.y * bias) + (v2.y * (1-bias)),
+            (v1.z * bias) + (v2.z * (1-bias))
             ); 
+}
+
+// Get min and max of two vectors
+vec3 min(const vec3& v1, const vec3& v2) {
+    return vec3(
+            std::min(v1.x, v2.x),
+            std::min(v1.y, v2.y),
+            std::min(v1.z, v2.z)
+            );   
+}
+
+vec3 max(const vec3& v1, const vec3& v2) {
+    return vec3(
+            std::max(v1.x, v2.x),
+            std::max(v1.y, v2.y),
+            std::max(v1.z, v2.z)
+            );   
 }
 

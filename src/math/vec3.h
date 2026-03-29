@@ -1,8 +1,7 @@
 #pragma once
 
 // vec3 class definition
-class vec3 {
-public:
+struct vec3 {
     double x, y, z;
 
     // Definition of default constructors
@@ -61,7 +60,7 @@ vec3 operator * (double f, const vec3 v);
 vec3 operator / (double f, const vec3 v);
 
 // Cross product
-vec3 cross(vec3 &v1, vec3 &v2);
+vec3 cross(const vec3 &v1, const vec3 &v2);
 
 // Dot product
 double dot(const vec3 &v1, const vec3 &v2);
@@ -92,11 +91,16 @@ vec3 refract(const vec3 &uv, const vec3 &n, double etai_over_etat);
 // Fix degenerate bounding boxes
 void fix_bbox_degenerate(vec3& max_bbox, vec3& min_bbox);
 
-// return exponent
+// Return exponent
 vec3 exp(const vec3 &v);
 
 // Linear interpolation between vectors
-vec3 lerp(const vec3& v0, const vec3& v1, double bias);
+vec3 lerp(const vec3& v1, const vec3& v2, double bias);
+
+// Get min and max of two vectors
+vec3 min(const vec3& v1, const vec3& v2);
+vec3 max(const vec3& v1, const vec3& v2);
+
 
 
 
