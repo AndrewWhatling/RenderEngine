@@ -1,14 +1,11 @@
 #pragma once
 
-#include "math/vec3.h"
 #include <iostream>
 #include <string>
 #include <ostream>
 #include <chrono>
 #include <functional>
 #include <memory>
-#include <limits>
-#include <cmath>
 
 // Function to calculate time of another function
 template<typename Func>
@@ -25,23 +22,6 @@ void timeFunction(const std::string& name, Func&& func) {
               << duration.count() << " seconds.\n";
 }
 
-using std::make_shared;
-using std::shared_ptr;
-
-// Setting up constant values
-const double EPSILON = 1e-8;
-const double infinity = std::numeric_limits<double>::infinity();
-const double pi = 3.1415926535897932385;
-
-// Util functions
-
-inline double degrees_to_radians(double degrees) {
-    return degrees * pi / 180.0;
-}
-
-inline double radians_to_degrees(double radians) {
-    return radians * (180.0 / pi);
-}
 
 // basic print statement for C++ debugging
 inline void print(const std::string& message) {
