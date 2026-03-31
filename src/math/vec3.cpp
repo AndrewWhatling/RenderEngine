@@ -1,7 +1,9 @@
 #include "math/vec3.h"
 #include <stdexcept>
 
-#include "core/utils.h"
+#include "utils/constants.h"
+#include "utils/debug.h"
+#include "utils/math.h"
 #include "core/random.h"
 #include <cmath>
 #include <algorithm>
