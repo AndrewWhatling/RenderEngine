@@ -1,5 +1,7 @@
 #pragma once
 
+struct vec4;
+
 // vec3 class definition
 struct vec3 {
     double x, y, z;
@@ -8,6 +10,7 @@ struct vec3 {
     vec3();
     vec3(double v);
     vec3(double xx, double yy, double zz);
+    explicit vec3(const vec4& v);
 
     vec3 operator = (const vec3& v);
     

@@ -1,4 +1,5 @@
 #include "math/vec3.h"
+#include "math/vec4.h"
 #include <stdexcept>
 
 #include "utils/constants.h"
@@ -13,6 +14,7 @@
 vec3::vec3() : x(0), y(0), z(0) {}
 vec3::vec3(double v) : x(v), y(v), z(v) {}
 vec3::vec3(double xx, double yy, double zz) : x(xx), y(yy), z(zz) {}
+vec3::vec3(const vec4& v) : x(v.x), y(v.y), z(v.z) {}
 
 vec3 vec3::operator = (const vec3& v) {
     x = v.x;

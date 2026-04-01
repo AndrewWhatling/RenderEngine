@@ -22,3 +22,4 @@ struct matrix {
     matrix operator - () const;
 };
 
+vec3 rotate(const vec3& v, const matrix& m);
