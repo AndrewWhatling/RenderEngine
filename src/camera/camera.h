@@ -4,6 +4,8 @@
 #include "math/vec3.h"
 #include <cmath>
 #include "utils/math.h"
+#include "core/ray.h"
+
 
 class Camera {
 public: 
@@ -18,6 +20,12 @@ public:
     double vfov;
     vec3 right;
     vec3 up;
+
+    virtual ~Camera() = default;
+    virtual Ray generateRay(double s, double t) const = 0;
+    virtual void setup(double aspect_ratio) = 0;
+
+protected:
 
     void computeDerived(double aspect_ratio) {
         focal_length_m = params.focal_length / 1000.0;
