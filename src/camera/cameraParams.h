@@ -7,9 +7,6 @@ struct CameraParams {
     vec3 position = vec3(0.0);
     vec3 lookat = vec3(0.0, 0.0, -1.0);
 
-    vec3 forward = vec3(0.0, 0.0, -1.0);
-    vec3 vup = vec3(0.0, 1.0, 0.0);
-
     double focal_length = 50.0;
     double focal_distance = 5.0;
     vec2 aperture = vec2(25.34, 14.25); 
@@ -17,5 +14,13 @@ struct CameraParams {
     
     double shutter_open = 0.0;
     double shutter_closed = 0.0;
+    
+    const vec3& getForward() const { return forward; }
+    const vec3& getVup() const { return vup; }
+
+protected:
+    vec3 forward = vec3(0.0, 0.0, -1.0);
+    vec3 vup = vec3(0.0, 1.0, 0.0);
+
 };
 
