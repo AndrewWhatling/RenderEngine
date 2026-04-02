@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iostream>
+
+
 struct vec4;
 
 // vec3 class definition
@@ -104,6 +107,6 @@ vec3 lerp(const vec3& v1, const vec3& v2, double bias);
 vec3 min(const vec3& v1, const vec3& v2);
 vec3 max(const vec3& v1, const vec3& v2);
 
-
+std::ostream& operator<<(std::ostream& os, const vec3& v);
 
 

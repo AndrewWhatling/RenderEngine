@@ -1,6 +1,7 @@
 #include "math/vec3.h"
 #include "math/vec4.h"
 #include <stdexcept>
+#include <iostream>
 
 #include "utils/constants.h"
 #include "utils/debug.h"
@@ -272,4 +273,11 @@ vec3 max(const vec3& v1, const vec3& v2) {
             std::max(v1.z, v2.z)
             );   
 }
+
+// Overload << operator
+std::ostream& operator<<(std::ostream& os, const vec3& v) {
+    os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+    return os; // return the stream to allow chaining
+}
+
 

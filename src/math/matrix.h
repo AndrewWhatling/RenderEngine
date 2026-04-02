@@ -23,3 +23,4 @@ struct matrix {
 };
 
 vec3 rotate(const vec3& v, const matrix& m);
+vec3 transpose_rotate(const vec3& v, const matrix& m);

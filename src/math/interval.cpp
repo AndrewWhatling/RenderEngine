@@ -1,5 +1,6 @@
 #include "math/interval.h"
-#include "core/utils.h"
+#include "utils/constants.h"
+#include <cmath>
 
 
 // Define default as infinity/-infinity line
