@@ -16,6 +16,9 @@ add_executable(Raytracer
     src/math/ivec3.cpp
     src/math/vec2.cpp
     src/math/interval.cpp
+    src/math/vec4.cpp
+    src/math/matrix.cpp
+    src/core/bounds3.cpp
 )
 
 target_link_libraries(Raytracer PRIVATE OpenEXR::OpenEXR)
