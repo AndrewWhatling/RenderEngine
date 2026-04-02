@@ -5,7 +5,7 @@
 
 struct CameraParams {
     vec3 position = vec3(0.0);
-    vec3 lookat = vec3(0.0, 0.0, -1.0);
+    vec3 lookat = vec3(0.0, 0.0, 1.0);
 
     double focal_length = 50.0;
     double focal_distance = 5.0;

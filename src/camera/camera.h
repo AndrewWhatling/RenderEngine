@@ -33,10 +33,16 @@ protected:
         lens_radius = (params.fstop > 0.0) ? focal_length_m / (2.0 * params.fstop) : 0.0;
 
         vec3 world_forward = normalize(params.lookat - params.position);
-        vec3 world_right = cross(world_forward, params.getVup());
-        vec3 world_up = cross(world_right, world_forward);
+        vec3 world_right = normalize(cross(world_forward, params.getVup()));
+        vec3 world_up = normalize(cross(world_right, world_forward));
 
-        camera_to_world = matrix(world_right, world_up, -world_forward, params.position);
+        //camera_to_world = matrix(world_right, world_up, -world_forward, params.position);
+        camera_to_world = matrix(
+                vec4(world_right.x, world_up.x, -world_forward.x, 0),
+                vec4(world_right.y, world_up.y, -world_forward.y, 0),
+                vec4(world_right.z, world_up.z, -world_forward.z, 0),
+                vec4(params.position, 1)
+                );
     }
 };
 
